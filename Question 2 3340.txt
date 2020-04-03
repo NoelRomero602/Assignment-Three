@@ -1,0 +1,377 @@
+ASM of MIPS gcc 5.4:
+myfunction(int*, int):
+    	addiu   $sp,$sp,-56
+    	sw  	$31,52($sp)
+    	sw  	$fp,48($sp)
+    	move	$fp,$sp
+    	sw  	$4,56($fp)
+    	sw  	$5,60($fp)
+    	sw  	$0,24($fp)
+    	sw  	$0,28($fp)
+$L16:
+    	lw  	$2,60($fp)
+    	nop
+    	addiu   $3,$2,-2
+    	lw  	$2,28($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	bne 	$2,$0,$L17
+    	nop
+    	lw  	$2,28($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$2,0($2)
+    	nop
+    	sw  	$2,44($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	sw  	$2,32($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	addiu $2,$2,1
+    	sw  	$2,36($fp)
+$L5:
+    	lw  	$3,36($fp)
+    	lw  	$2,60($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	beq 	$2,$0,$L3
+    	nop
+    	lw  	$2,36($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$3,0($2)
+    	lw  	$2,44($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	beq 	$2,$0,$L4
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,32($fp)
+$L4:
+    	lw  	$2,36($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,36($fp)
+    	b   	$L5
+    	nop
+$L3:
+    	lw  	$3,32($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	beq 	$3,$2,$L18
+    	nop
+$L6:
+    	lw  	$2,32($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$3,0($2)
+    	lw  	$2,44($fp)
+    	nop
+    	bne 	$3,$2,$L8
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,32($fp)
+    	b   	$L6
+    	nop
+$L8:
+    	lw  	$3,32($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	beq 	$3,$2,$L9
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$3,$3,$2
+    	addiu   $2,$fp,44
+    	move	$5,$3
+    	move	$4,$2
+    	jal 	void std::swap<int>(int&, int&)
+    	nop
+    	lw  	$2,24($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,24($fp)
+$L9:
+    	lw  	$3,32($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	beq 	$3,$2,$L7
+    	nop
+    	lw  	$2,28($fp)
+    	nop
+    	sw  	$2,32($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,40($fp)
+$L13:
+    	lw  	$3,40($fp)
+    	lw  	$2,60($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	beq 	$2,$0,$L11
+    	nop
+    	lw  	$2,40($fp)
+      nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$3,0($2)
+    	lw  	$2,44($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	beq 	$2,$0,$L12
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,32($fp)
+$L12:
+    	lw  	$2,40($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,40($fp)
+    	b   	$L13
+    	nop
+$L11:
+    	lw  	$2,32($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$3,0($2)
+    	lw  	$2,44($fp)
+    	nop
+    	bne 	$3,$2,$L14
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,32($fp)
+    	b   	$L11
+    	nop
+$L14:
+    	lw  	$2,32($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$2,$3,$2
+    	lw  	$3,0($2)
+    	lw  	$2,44($fp)
+    	nop
+    	beq 	$3,$2,$L9
+    	nop
+    	lw  	$2,32($fp)
+    	nop
+    	sll 	$2,$2,2
+    	lw  	$3,56($fp)
+    	nop
+    	addu	$3,$3,$2
+    	addiu   $2,$fp,44
+    	move	$5,$3
+    	move	$4,$2
+    	jal 	void std::swap<int>(int&, int&)
+    	nop
+    	lw  	$2,24($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,24($fp)
+    	b   	$L9
+    	nop
+$L18:
+    	nop
+$L7:
+    	lw  	$2,28($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,28($fp)
+    	b   	$L16
+    	nop
+$L17:
+    	nop
+    	move	$sp,$fp
+    	lw  	$31,52($sp)
+    	lw  	$fp,48($sp)
+    	addiu   $sp,$sp,56
+    	j   	$31
+    	nop
+$LC0:
+    	.ascii "array:\000"
+$LC1:
+    	.ascii " \000"
+main:
+    	addiu   $sp,$sp,-72
+    	sw  	$31,68($sp)
+    	sw  	$fp,64($sp)
+    	move	$fp,$sp
+    	li  	$2,1                    	# 0x1
+    	sw  	$2,32($fp)
+    	li  	$2,8           	         # 0x8
+    	sw  	$2,36($fp)
+    	li  	$2,3                    	# 0x3
+    	sw  	$2,40($fp)
+    	li  	$2,9                    	# 0x9
+    	sw  	$2,44($fp)
+    	li  	$2,10             	# 0xa
+    	sw  	$2,48($fp)
+    	li  	$2,2                    	# 0x2
+    	sw  	$2,52($fp)
+    	li  	$2,4                    	# 0x4
+    	sw  	$2,56($fp)
+    	li  	$2,7                    	# 0x7
+    	sw  	$2,28($fp)
+    	addiu   $2,$fp,32
+    	lw  	$5,28($fp)
+    	move	$4,$2
+    	jal 	myfunction(int*, int)
+    	nop
+    	lui 	$2,%hi($LC0)
+    	addiu   $5,$2,%lo($LC0)
+    	lui 	$2,%hi(_ZSt4cout)
+    	addiu   $4,$2,%lo(_ZSt4cout)
+    	jal 	std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+    	nop
+    	move	$3,$2
+    	lui 	$2,%hi(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+    	addiu   $5,$2,%lo(_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+    	move	$4,$3
+    	jal 	std::basic_ostream<char, std::char_traits<char> >::operator<<(std::basic_ostream<char, std::char_traits<char> >& (*)(std::basic_ostream<char, std::char_traits<char> >&))
+    	nop
+    	sw  	$0,24($fp)
+$L21:
+    	lw  	$3,24($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	slt 	$2,$3,$2
+    	beq 	$2,$0,$L20
+    	nop
+ 	   lw  	$2,24($fp)
+    	nop
+    	sll 	$2,$2,2
+    	addiu   $3,$fp,24
+    	addu	$2,$3,$2
+    	lw  	$2,8($2)
+    	nop
+    	move	$5,$2
+    	lui 	$2,%hi(_ZSt4cout)
+    	addiu   $4,$2,%lo(_ZSt4cout)
+    	jal 	std::basic_ostream<char, std::char_traits<char> >::operator<<(int)
+    	nop
+    	move	$3,$2
+    	lui 	$2,%hi($LC1)
+    	addiu   $5,$2,%lo($LC1)
+    	move	$4,$3
+    	jal 	std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+    	nop
+    	lw  	$2,24($fp)
+    	nop
+    	addiu   $2,$2,1
+    	sw  	$2,24($fp)
+    	b   	$L21
+    	nop
+$L20:
+    	move	$2,$0
+    	move	$sp,$fp
+    	lw  	$31,68($sp)
+    	lw  	$fp,64($sp)
+    	addiu   $sp,$sp,72
+    	j   	$31
+    	nop
+void std::swap<int>(int&, int&):
+    	addiu   $sp,$sp,-24
+    	sw  	$fp,20($sp)
+    	move	$fp,$sp
+    	sw  	$4,24($fp)
+    	sw  	$5,28($fp)
+    	lw  	$2,24($fp)
+    	nop
+    	lw  	$2,0($2)
+    	nop
+    	sw  	$2,8($fp)
+    	lw  	$2,28($fp)
+    	nop
+    	lw  	$3,0($2)
+    	lw  	$2,24($fp)
+    	nop
+    	sw  	$3,0($2)
+    	lw  	$2,28($fp)
+    	lw  	$3,8($fp)
+    	nop
+    	sw  	$3,0($2)
+    	nop
+    	move	$sp,$fp
+    	lw  	$fp,20($sp)
+    	addiu   $sp,$sp,24
+    	j   	$31
+    	nop
+__static_initialization_and_destruction_0(int, int):
+    	addiu   $sp,$sp,-32
+    	sw  	$31,28($sp)
+    	sw  	$fp,24($sp)
+    	move	$fp,$sp
+    	sw  	$4,32($fp)
+    	sw  	$5,36($fp)
+    	lw  	$3,32($fp)
+    	li  	$2,1                    	# 0x1
+    	bne 	$3,$2,$L26
+    	nop
+    	lw  	$3,36($fp)
+    	li  	$2,65535                	# 0xffff
+    	bne 	$3,$2,$L26
+    	nop
+    	lui 	$2,%hi(_ZStL8__ioinit)
+    	addiu   $4,$2,%lo(_ZStL8__ioinit)
+    	jal 	std::ios_base::Init::Init() [complete object constructor]
+    	nop
+    	lui 	$2,%hi(__dso_handle)
+    	addiu   $6,$2,%lo(__dso_handle)
+    	lui 	$2,%hi(_ZStL8__ioinit)
+    	addiu   $5,$2,%lo(_ZStL8__ioinit)
+    	lui 	$2,%hi(_ZNSt8ios_base4InitD1Ev)
+    	addiu   $4,$2,%lo(_ZNSt8ios_base4InitD1Ev)
+    	jal 	__cxa_atexit
+    	nop
+$L26:
+    	nop
+    	move	$sp,$fp
+    	lw  	$31,28($sp)
+    	lw  	$fp,24($sp)
+    	addiu   $sp,$sp,32
+    	j   	$31
+    	nop
+_GLOBAL__sub_I_myfunction(int*, int):
+    	addiu   $sp,$sp,-32
+    	sw  	$31,28($sp)
+    	sw  	$fp,24($sp)
+    	move	$fp,$sp
+    	li  	$5,65535                	# 0xffff
+    	li  	$4,1                    	# 0x1
+    	jal 	__static_initialization_and_destruction_0(int, int)
+    	nop
+    	move	$sp,$fp
+    	lw  	$31,28($sp)
+    	lw	  $fp,24($sp)
+    	addiu   $sp,$sp,32
+    	j   	$31
+    	nop
+
